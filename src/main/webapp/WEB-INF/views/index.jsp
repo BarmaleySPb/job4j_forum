@@ -11,29 +11,36 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Форум job4j</title>
+    <title>Forum job4j</title>
 </head>
 <body>
 
 <div class="container mt-3">
     <div class="row">
-        <h4>Форум job4j</h4>
+        <h4>Forum job4j</h4>
     </div>
     <div class="row">
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">Тема</th>
+                <th scope="col">Post</th>
             </tr>
             </thead>
             <tbody>
             <c:forEach items="${posts}" var="post">
                 <tr>
+                    <td>
+                        <a href="<c:url value='/edit?id=${post.id}'/>">${post.id}</a>
+                    </td>
                     <td><c:out value="${post.name}"/></td>
+                    <td>
+                        <a href="<c:url value='/delete?id=${post.id}'/>">Delete</a>
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
+        <a href="<c:url value='/create'/>">Add post</a>
     </div>
 </div>
 

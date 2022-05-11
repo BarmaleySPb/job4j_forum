@@ -1,21 +1,36 @@
 package forum.service;
 
+import forum.repository.PostMemRepository;
 import org.springframework.stereotype.Service;
 import forum.model.Post;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 @Service
 public class PostService {
+    private final PostMemRepository posts;
 
-    private final List<Post> posts = new ArrayList<>();
-
-    public PostService() {
-        posts.add(Post.of("Продаю машину ладу 01."));
+    public PostService(PostMemRepository posts) {
+        this.posts = posts;
     }
 
-    public List<Post> getAll() {
-        return posts;
+    public Collection<Post> getAll() {
+        return posts.getAllPosts();
+    }
+
+    public void add(Post post) {
+        posts.add(post);
+    }
+
+    public Post get(int id) {
+        return posts.get(id);
+    }
+
+    public void update(Post post) {
+        posts.update(post);
+    }
+
+    public void delete(int id) {
+        posts.delete(id);
     }
 }

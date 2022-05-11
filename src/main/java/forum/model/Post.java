@@ -3,6 +3,7 @@ package forum.model;
 import java.util.Calendar;
 import java.util.Objects;
 
+
 public class Post {
     private int id;
     private String name;
@@ -56,10 +57,10 @@ public class Post {
             return false;
         }
         Post post = (Post) o;
-        return id == post.id &&
-                Objects.equals(name, post.name) &&
-                Objects.equals(description, post.description) &&
-                Objects.equals(created, post.created);
+        return id == post.id
+                && Objects.equals(name, post.name)
+                && Objects.equals(description, post.description)
+                && Objects.equals(created, post.created);
     }
 
     @Override

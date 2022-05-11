@@ -8,10 +8,6 @@ public class User {
     private String password;
     private String username;
 
-    public User(){
-
-    }
-
     public int getId() {
         return id;
     }

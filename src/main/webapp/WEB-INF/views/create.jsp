@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Edit post</title>
+    <title>Create post</title>
 </head>
 <body>
 
@@ -10,15 +10,15 @@
     <div class="row">
         <div class="card" style="width: 100%">
             <div class="card-header">
-                Edit post
+                Create post
             </div>
             <div class="card-body">
-                <form  action="<c:url value='/edit?id=${post.id}'/>" method='POST'>
+                <form  action="<c:url value='/save'/>" method='POST'>
                     <div class="form-group">
                         <label>Post name</label>
-                        <input type="text" class="form-control" name="name" value="${post.name}">
+                        <input type="text" class="form-control" name="name">
                     </div>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-primary">Create</button>
                 </form>
             </div>
         </div>
