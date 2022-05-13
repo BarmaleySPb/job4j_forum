@@ -9,7 +9,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@Repository
+/**
+ * @Repository
+ */
+
 public class PostMemRepository {
 
     private final Map<Integer, Post> posts = new HashMap<>();
@@ -38,7 +41,7 @@ public class PostMemRepository {
     }
 
     public void update(Post post) {
-        posts.replace(post.getId(), post);
+  /*      posts.replace(post.getId(), post); */
     }
 
     public void delete(int id) {

@@ -13,7 +13,7 @@
                 Edit post
             </div>
             <div class="card-body">
-                <form  action="<c:url value='/edit?id=${post.id}'/>" method='POST'>
+                <form  action="<c:url value='/save?id=${post.id}'/>" method='POST'>
                     <div class="form-group">
                         <label>Post name</label>
                         <input type="text" class="form-control" name="name" value="${post.name}">

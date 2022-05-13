@@ -1,36 +1,33 @@
 package forum.service;
 
-import forum.repository.PostMemRepository;
+import forum.repository.PostRepository;
 import org.springframework.stereotype.Service;
 import forum.model.Post;
 
-import java.util.Collection;
+import java.util.Calendar;
 
 @Service
 public class PostService {
-    private final PostMemRepository posts;
+    private final PostRepository posts;
 
-    public PostService(PostMemRepository posts) {
+    public PostService(PostRepository posts) {
         this.posts = posts;
     }
 
-    public Collection<Post> getAll() {
-        return posts.getAllPosts();
+    public Iterable<Post> getAll() {
+        return posts.findAll();
     }
 
     public void add(Post post) {
-        posts.add(post);
+        post.setCreated(Calendar.getInstance());
+        posts.save(post);
     }
 
-    public Post get(int id) {
-        return posts.get(id);
+    public Post get(Long id) {
+        return posts.findById(id).orElse(null);
     }
 
-    public void update(Post post) {
-        posts.update(post);
-    }
-
-    public void delete(int id) {
-        posts.delete(id);
+    public void delete(Post post) {
+        posts.delete(post);
     }
 }

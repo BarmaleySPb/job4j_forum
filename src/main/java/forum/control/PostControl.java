@@ -26,26 +26,20 @@ public class PostControl {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute Post post, HttpServletRequest req) {
+    public String save(@ModelAttribute Post post) {
         posts.add(post);
         return "redirect:/";
     }
 
     @GetMapping("/edit")
-    public String update(@RequestParam("id") int id, Model model) {
+    public String update(@RequestParam("id") long id, Model model) {
         model.addAttribute("post", posts.get(id));
         return "edit";
     }
 
-    @PostMapping("/edit")
-    public String update(@ModelAttribute Post post) {
-        posts.update(post);
-        return "redirect:/";
-    }
-
     @GetMapping("/delete")
     public String delete(@ModelAttribute Post post) {
-        posts.delete(post.getId());
+        posts.delete(post);
         return "redirect:/";
     }
 }
