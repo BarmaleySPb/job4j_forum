@@ -15,6 +15,10 @@
 </head>
 <body>
 
+<div>
+    Login as : ${user.username}
+</div>
+
 <div class="container mt-3">
     <div class="row">
         <h4>Forum job4j</h4>
